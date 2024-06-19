@@ -1,0 +1,29 @@
+.navbar{
+    list-style: none;
+    display: flex;
+    gap: 1vw;
+}
+.navbar-item{
+    padding: 1vw;
+    background-color: #c7d0e2;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;    
+    
+}
+.navbar-item a{
+    color: red;
+    text-decoration: none;
+}
+.navbar-item::after{
+    content:"";
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: red;
+
+}
+.navbar-item:hover::after{
+    width: 100%;
+    transition: width 0.5s ease;
+}
