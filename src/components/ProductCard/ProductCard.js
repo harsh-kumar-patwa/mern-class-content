@@ -1,8 +1,9 @@
 import './ProductCard.css';
 import {useRef,useState} from 'react';
-import Effect from './effect/Effect';
+// import Effect from './effect/Effect';
+import AddToCart from '../AddToCart/AddToCart';
 
-function ProductCart({id,price,title}){
+function ProductCard({product,cart,increaseQuantity,decreaseQuantity}){
     let x = false;
     let pRef = useRef(0);
     let inputRef = useRef(0);
@@ -10,15 +11,10 @@ function ProductCart({id,price,title}){
     let [inputVariable,setInputVariable] = useState('Class');
     // console.log({price,title});
     function printTitle(){
-        console.log(title);
+        console.log(product.title);
         console.log(pRef.current.innerText);
     }
     function hideAndShow(){
-        // if(pRef.current.style.display == "none"){
-        //     pRef.current.style.display = "block";
-        // }else{
-        //     pRef.current.style.display = "none";
-        // }
         if(x){
             pRef.current.style.display = "none";
             x=false;
@@ -35,14 +31,15 @@ function ProductCart({id,price,title}){
     }
     return (
         <div className="product-card">
-            <p>{id}</p>
-            <p onClick={hideAndShow}>{title}</p>
-            <p ref={pRef} style={{display:'none'}}>{price}</p>
+            <p>{product.id}</p>
+            <p onClick={hideAndShow}>{product.title}</p>
+            <p ref={pRef} style={{display:'none'}}>{product.price.value}</p>
             {/* <input type='text' ref={inputRef} onChange={updateText} value={inputVariable}></input> */}
             {/* <p ref={pTextRef}>Over here the input would be shown : {inputVariable}</p> */}
             {/* <Effect/> */}
+            <AddToCart product={product} cart={cart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity}/>
         </div>
         
     )
 }
-export default ProductCart;
+export default ProductCard;

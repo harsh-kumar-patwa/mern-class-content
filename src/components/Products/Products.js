@@ -1,49 +1,11 @@
-import ProductCart from "./ProductCart";
+import ProductCard from "../ProductCard/ProductCard";
 import { useState ,useEffect} from "react";
-function useHeight(){
-    return window.innerHeight;
-} 
-function useWidth(){
-    return window.innerWidth;
-}
-function Products(){
-    // const products = [
-    //     {
-    //     id: 1,
-    //     title: "Apple iPhone 14",
-    //     price: "Rs. 1,00,000"
-    //     },
-    //     {
-    //     id: 2,
-    //     title: "Apple iPhone 13",
-    //     price: "Rs. 70,000"
-    //     },
-    //     {
-    //     id: 3,
-    //     title: "Google Pixel 7",
-    //     price: "Rs. 50,000"
-    //     },
-    //     {
-    //     id: 4,
-    //     title: "Nokia 1100",
-    //     price: "Rs. 2,000"
-    //     },
-    //     {
-    //     id: 5,
-    //     title: "Samsung Galaxy S10",
-    //     price: "Rs. 1,00,000"
-    //     },
-    //     {
-    //     id: 6,
-    //     title: "Sony Xperia S10",
-    //     price: "Rs. 1,00,000"
-    //     }
-    //     ];
 
-    // let products = [];
+function Products({cart, decreaseQuantity, increaseQuantity}){
+ 
     let[products,setProducts] = useState([]);
     useEffect(()=>{
-        fetch("https://run.mocky.io/v3/471edca3-8a26-407d-8a61-7f585ccaf193").then(
+        fetch("https://602fc537a1e9d20017af105e.mockapi.io/api/v1/products").then(
             (response)=>{
                 return response.json();
             }
@@ -59,10 +21,10 @@ function Products(){
         <div>
             <h1>I am products</h1>
             {
-                products.map(function(item){
+                products.map(function(item,index){
                     return (
                         <div>
-                            <ProductCart id={item.id+". "} title={item.title} price={item.price.value}/>
+                            <ProductCard key={index} product={item} cart={cart} decreaseQuantity={decreaseQuantity} increaseQuantity={increaseQuantity}/>
                             <br/>
                         </div>
                     )
