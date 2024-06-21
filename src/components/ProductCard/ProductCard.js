@@ -3,7 +3,7 @@ import {useRef,useState} from 'react';
 // import Effect from './effect/Effect';
 import AddToCart from '../AddToCart/AddToCart';
 
-function ProductCard({product,cart,increaseQuantity,decreaseQuantity}){
+function ProductCard({product}){
     let x = false;
     let pRef = useRef(0);
     let inputRef = useRef(0);
@@ -37,7 +37,7 @@ function ProductCard({product,cart,increaseQuantity,decreaseQuantity}){
             {/* <input type='text' ref={inputRef} onChange={updateText} value={inputVariable}></input> */}
             {/* <p ref={pTextRef}>Over here the input would be shown : {inputVariable}</p> */}
             {/* <Effect/> */}
-            <AddToCart product={product} cart={cart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity}/>
+            <AddToCart product={product} />
         </div>
         
     )

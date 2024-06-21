@@ -1,7 +1,7 @@
 import ProductCard from "../ProductCard/ProductCard";
 import { useState ,useEffect} from "react";
 
-function Products({cart, decreaseQuantity, increaseQuantity}){
+function Products(){
  
     let[products,setProducts] = useState([]);
     useEffect(()=>{
@@ -24,7 +24,7 @@ function Products({cart, decreaseQuantity, increaseQuantity}){
                 products.map(function(item,index){
                     return (
                         <div>
-                            <ProductCard key={index} product={item} cart={cart} decreaseQuantity={decreaseQuantity} increaseQuantity={increaseQuantity}/>
+                            <ProductCard key={index} product={item} />
                             <br/>
                         </div>
                     )
