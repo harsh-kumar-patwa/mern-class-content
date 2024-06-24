@@ -1,7 +1,8 @@
 import './ProductCard.css';
 import {useRef,useState} from 'react';
 // import Effect from './effect/Effect';
-import AddToCart from '../AddToCart/AddToCart';
+// import AddToCart from '../AddToCart/AddToCart';
+import AddToCart from '../ReduxAddToCart/ReduxAddToCart';
 import React from 'react';
 
 function ProductCard({product}){
