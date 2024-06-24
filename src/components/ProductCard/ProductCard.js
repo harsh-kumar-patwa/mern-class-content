@@ -2,6 +2,7 @@ import './ProductCard.css';
 import {useRef,useState} from 'react';
 // import Effect from './effect/Effect';
 import AddToCart from '../AddToCart/AddToCart';
+import React from 'react';
 
 function ProductCard({product}){
     let x = false;
@@ -9,6 +10,8 @@ function ProductCard({product}){
     let inputRef = useRef(0);
     let pTextRef = useRef(0);
     let [inputVariable,setInputVariable] = useState('Class');
+
+    console.log("ProductCard", product.id);
     // console.log({price,title});
     function printTitle(){
         console.log(product.title);
@@ -42,4 +45,4 @@ function ProductCard({product}){
         
     )
 }
-export default ProductCard;
+export default React.memo(ProductCard);

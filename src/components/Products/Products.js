@@ -1,9 +1,10 @@
 import ProductCard from "../ProductCard/ProductCard";
 import { useState ,useEffect} from "react";
-
+import React from 'react';
 function Products(){
  
     let[products,setProducts] = useState([]);
+    console.log("products",products.id);
     useEffect(()=>{
         fetch("https://602fc537a1e9d20017af105e.mockapi.io/api/v1/products").then(
             (response)=>{
@@ -36,7 +37,7 @@ function Products(){
     )
 }
 export let a = 10;
-export default Products;
+export default React.memo(Products);
 
 // oldDom = [
 // <ProductCard key={i1} title="Title 1" />,
