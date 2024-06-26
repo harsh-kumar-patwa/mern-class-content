@@ -3,6 +3,7 @@ import './App.css';
 import Products from './components/Products/Products';
 import { useEffect, useState } from 'react';
 import CartContext from './context/CartContext';
+import Cart from './components/Cart/Cart';
 
 function App() {
   const [percentage,setPercentage] = useState(0);
@@ -51,6 +52,7 @@ function App() {
     <CartContext.Provider value={{cart,increaseQuantity,decreaseQuantity}}>
     <div className="App">
       <Products />
+      <Cart/>
     </div>
     </CartContext.Provider>
   );
